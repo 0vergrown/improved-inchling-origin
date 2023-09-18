@@ -1,0 +1,184 @@
+{
+
+    "name": "Sugar-Fueled Frenzy",
+    "description": "The Inchling's unique metabolism reacts intensely to sugar. Consuming it triggers a powerful \"sugar rush\", granting them unparalleled speed and enhanced saturation. However, indulging too much or too often in this sweet temptation risks overstimulation, potentially leading to nausea, blurred vision, and rapid hunger depletion.",
+    "type": "origins:multiple",
+    "consume_resource":{
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1,
+        "hud_render": {
+          "should_render": false
+        },
+        "start_value": 0,
+        "max_action": {
+            "type": "origins:delay",
+            "ticks": 80,
+            "action": {
+                "type": "origins:change_resource",
+                "resource": "improved_inchling:sugar_fueled_frenzy_consume_resource",
+                "change": 0,
+                "operation": "set"
+            }
+        }
+    },
+    "indulging_resource":{
+        "type": "origins:resource",
+        "min": 0,
+        "max": 5,
+        "hud_render": {
+          "should_render": false
+        },
+        "start_value": 0,
+        "max_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "improved_inchling:sugar_fueled_frenzy_consume_resource",
+                    "change": 0,
+                    "operation": "set"
+                },
+                {    
+                    "type": "origins:delay",
+                    "ticks": 1200,
+                    "action": {
+                        "type": "origins:change_resource",
+                        "resource": "improved_inchling:sugar_fueled_frenzy_indulging_resource",
+                        "change": 0,
+                        "operation": "set"
+                    }
+                }
+            ]
+        }
+    },
+    "active": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:equipped_item_action",
+                    "equipment_slot": "mainhand",
+                    "action": {
+                        "type": "origins:consume",
+                        "amount": 1
+                    }
+                },
+                {
+                    "type": "origins:play_sound",
+                    "sound": "minecraft:entity.player.burp",
+                    "volume": 1.00,
+                    "pitch": 1.00
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "improved_inchling:sugar_fueled_frenzy_consume_resource",
+                    "change": 1,
+                    "operation": "add"
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "improved_inchling:sugar_fueled_frenzy_indulging_resource",
+                    "change": 1,
+                    "operation": "add"
+                }
+            ]
+        },
+        "cooldown": 400,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location":"origins:textures/gui/community/spiderkolo/resource_bar_02.png",
+            "bar_index": 6
+        },
+        "key": {
+            "key": "key.use",
+            "continuous": false
+        },
+        "condition": {
+            "type": "origins:equipped_item",
+            "equipment_slot": "mainhand",
+            "item_condition": {
+                "type": "origins:ingredient",
+                "ingredient": {
+                    "item": "minecraft:sugar"
+                }
+            }
+        }
+    },
+
+    "consume_effects": {
+        "type": "origins:stacking_status_effect",
+        "min_stacks": -3,
+        "max_stacks": 1,
+        "duration_per_stack": 100,
+        "tick_rate": 1,
+        "effects":[
+            {
+                "effect": "minecraft:saturation",
+                "duration": 80,
+                "amplifier": 3,
+                "is_ambient": true,
+                "show_particles": false,
+                "show_icon": true
+            },
+            {
+                "effect": "minecraft:speed",
+                "duration": 80,
+                "amplifier": 10,
+                "is_ambient": true,
+                "show_particles": false,
+                "show_icon": true
+            }
+        ],
+        "condition": {
+            "type": "origins:resource",
+            "resource": "improved_inchling:sugar_fueled_frenzy_consume_resource",
+            "comparison": "==",
+            "compare_to": 1
+        }
+    },
+    "indulging_effects": {
+        "type": "origins:stacking_status_effect",
+        "min_stacks": -3,
+        "max_stacks": 1,
+        "duration_per_stack": 100,
+        "tick_rate": 20,
+        "effects":[
+            {
+                "effect": "minecraft:nausea",
+                "duration": 80,
+                "amplifier": 0,
+                "is_ambient": true,
+                "show_particles": false,
+                "show_icon": true
+            },
+            {
+                "effect": "minecraft:hunger",
+                "duration": 80,
+                "amplifier": 10,
+                "is_ambient": true,
+                "show_particles": false,
+                "show_icon": true
+            }
+        ],
+        "condition": {
+            "type": "origins:resource",
+            "resource": "improved_inchling:sugar_fueled_frenzy_indulging_resource",
+            "comparison": "==",
+            "compare_to": 5
+        }
+    },
+    "indulging_blurred_vision":{
+        "type": "origins:shader",
+        "shader": "minecraft:shaders/post/blur.json",
+        "toggleable": false,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "improved_inchling:sugar_fueled_frenzy_indulging_resource",
+            "comparison": "==",
+            "compare_to": 5
+        }
+    }
+
+}
