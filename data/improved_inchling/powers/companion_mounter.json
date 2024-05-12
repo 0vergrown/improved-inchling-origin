@@ -1,19 +1,75 @@
 {
    "name":"Companion Mounter",
-   "description":"Inchlings can mount and ride other players and entities. Whether seeking a vantage point, swift transport, or simply bonding with allies. [Shift + Right Click On Entity]",
-   "type":"origins:action_on_entity_use",
-   "bientity_action":{
-      "type":"origins:mount"
-   },
-   "item_condition":{
-      "type":"origins:empty"
-   },
-   "hands":[
-      "main_hand"
+   "description":"Inchlings can mount and ride other players and entities. Whether seeking a vantage point, swift transport, or simply bonding with allies. [Secondary]",
+   "badges":[
+      {
+         "type":"origins:tooltip",
+         "sprite":"origins:textures/gui/badge/active.png",
+         "text":[
+            "Active ability, use [",
+            {
+               "keybind":"key.origins.secondary_active"
+            },
+            "] to mount; to dismount, use [",
+            {
+               "keybind":"key.sneak"
+            },
+            "]"
+         ]
+      }
    ],
-   "action_result":"success",
-   "priority":0,
-   "condition":{
-      "type":"origins:sneaking"
+   "type":"origins:multiple",
+   "mount":{
+      "type":"origins:active_self",
+      "entity_action":{
+         "type":"origins:raycast",
+         "distance":10.00,
+         "block":false,
+         "entity":true,
+         "shape_type":"collider",
+         "fluid_handling":"none",
+         "bientity_condition":{
+            "type":"origins:target_condition",
+            "condition":{
+               "type":"origins:living"
+            }
+         },
+         "bientity_action":{
+            "type":"origins:mount"
+         },
+         "entity_distance":3.00,
+         "command_step":1.00,
+         "command_along_ray_only_on_hit":false
+      },
+      "cooldown":1,
+      "hud_render":{
+         "should_render":false
+      },
+      "key":{
+         "key":"key.origins.secondary_active",
+         "continuous":false
+      },
+      "condition":{
+         "type":"origins:riding",
+         "inverted":true
+      }
+   },
+   "dismount":{
+      "type":"origins:active_self",
+      "entity_action":{
+         "type":"origins:dismount"
+      },
+      "cooldown":1,
+      "hud_render":{
+         "should_render":false
+      },
+      "key":{
+         "key":"key.sneak",
+         "continuous":false
+      },
+      "condition":{
+         "type":"origins:riding",
+         "inverted":false
+      }
    }
 }
