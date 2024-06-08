@@ -38,6 +38,7 @@ This datapack requires the following to function properly:
 - [Fabric Loader](https://fabricmc.net/) - Recommend loader the mods run on.
 - [Fabric API](https://fabricmc.net/use/) - Necessary for running mods in the Fabric mod loader environment.
 - [Origins Mod](https://github.com/apace100/origins-fabric) - A Minecraft mod that allows you to choose an Origin at the beginning, granting various abilities and drawbacks.
+- [Pehkui](https://github.com/Virtuoel/Pehkui) - Lets you change the size of most entities, shrinking them smaller or growing them larger.
 
 ## Installation
 To install the Improved Inchling Origin datapack, follow these steps:
