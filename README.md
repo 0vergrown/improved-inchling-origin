@@ -1,23 +1,47 @@
-## 🌍 **Inchling 2.0: Elevate Your Minecraft Origin Experience!** 🌍
+<p align="center">
+  <img src="https://raw.githubusercontent.com/0vergrown/Improved-Inchling-Origin/main/pack.png" alt="Improved Inchling Origin cover"/>
+</p>
 
-Embark on a Minecraft journey like never before with Inchling 2.0! This datapack is not just an improvement, but a reinvention, building on the legacy of MoriyaShiine's [Extra Origins](https://modrinth.com/mod/extra-origins) to bring you a more immersive, balanced, and bug-free experience.
+# 🌍 Improved Inchling Origin 🌍
 
-### 🌟 **What Sets Inchling 2.0 Apart?** 🌟
-- **Enhanced Abilities**: From wall-running to gliding, experience a suite of upgraded and new abilities that redefine gameplay.
-- **Balanced & Realistic**: Every aspect has been refined, introducing balanced gameplay and realistic features for the Inchling species.
-- **Community-Driven & Independent**: Developed with player feedback and entirely independent code, ensuring a unique and resonant experience.
+**This Pack Adds:**
+- Custom Origin
 
-### 🛡️ **Refined Gameplay & Fixes** 🛡️
-- **Balanced Challenges**: From swimming to mining, every aspect is balanced, making each ability valuable and every challenge rewarding.
-- **Armor Considerations**: Armor up wisely! Anything heavier than leather might slow you down.
+**Origin Detail:**
 
-### 🔥 **Discover the Inchling 2.0 Difference!** 🔥
-- **Unique Powers**: Uncover new abilities like Sugar-Fueled Frenzy and Silent Stride, each with its own perks and considerations.
-- **Improved & Independent**: Built from the ground up with updated functions and features, independent of the original code.
-- **Balanced Experience**: Introducing debuffs and considerations, ensuring a balanced and engaging gameplay.
+**Icon**: Spider Eye\
+**Impact**: 🔴🔴🔴\
+**Description**: Tiny and agile, Inchlings navigate the world with unmatched stealth and vertical prowess. Their delicate frame and unique metabolism offer both advantages and challenges. From effortlessly evading nature's obstacles to experiencing intense sugar rushes, Inchlings tread a fine line between nimble advantages and vulnerable limitations.
 
-### 💡 **Why Inchling 2.0?** 💡
-- Inchling 2.0 is not just a "better" version; it’s a reimagined experience, adding new content and addressing common concerns from the original. The datapack introduces realistic and balanced features, making it a unique and independent addition to your Minecraft gameplay. It’s been named and recognized by the community as an "improvement," but it’s truly a reinvention, designed to offer a fresh and exciting experience for all players.
+*Positive* 🟢:
+- **Inchling Ascendancy**: Drawing from their innate connection to the tiniest crevices and surfaces, Inchlings have evolved a swift and seamless climbing technique which allows them to glide up vertical terrains with the grace and speed of a wall runner. (Primary)
+- **Delicate Dodger**: The Inchling's nimble form effortlessly evades nature's prickly defenses. Thorns and brambles pose no threat, and even the stickiest of cobwebs can't hinder their swift movement.
+- **Featherlight Glide**: Harnessing the lightweight essence of a feather or the aerodynamic nature of paper, Inchlings can momentarily glide through the air. This allows them to descend gracefully and turning potential falls into controlled flights, ensuring a soft landing every time.
+- **Silent Stride**: The Inchling's delicate and lightweight frame grants them the unique ability of moving with such quietness and precision, they become undetectable to Sculk Sensors.
 
-### 🌐 **Join the Adventure!** 🌐
-- Dive deeper into the Minecraft world with Inchling 2.0! Experience enhanced gameplay, discover new abilities, and embrace the balanced and bug-free adventure. Download now and become part of the community that’s shaping the future of Minecraft!
+*Neutral* 🟡:
+- **Sugar-Fueled Frenzy**: The Inchling's unique metabolism reacts intensely to sugar. Consuming it triggers a powerful "sugar rush", granting them unparalleled speed and enhanced saturation. However, indulging too much or too often in this sweet temptation risks overstimulation, potentially leading to nausea, blurred vision, and rapid hunger depletion.
+- **Companion Mounter**: Inchlings can mount and ride other players and entities. Whether seeking a vantage point, swift transport, or simply bonding with allies. (Secondary)
+- **Efficient Metabolism**: The Inchling's compact physiology conserves energy with remarkable efficiency, reducing their need for frequent sustenance. However, the exertion of sprinting or swimming, given their size and the greater distances covered, accelerates their hunger, demanding a careful balance of speed and endurance.
+- **Minuscule Majesty**: Embodying the essence of diminutive stature, Inchlings have been granted the unique advantage of being the tiniest beings in the realm.
+- **Nimble Nature**: The Inchling's delicate frame, while reducing their heart count, gifts them with unmatched agility, allowing for rapid strikes. However, their compact stature demands closer engagements, slightly limiting their combat and building reach. In this balance of vulnerability and speed, the Inchling thrives.
+
+*Negative* 🔴:
+- **Burdened Armor**: While Inchlings can don armor, anything heavier than leather weighs them down significantly. This added weight slows their movement.
+- **Delicate Swimmer**: Water currents are more challenging for Inchlings due to their lightweight nature; thus, they have more difficulty swimming.
+- **Fragile Bones**: The Inchling's tiny frame is more susceptible to damage, making them take an additional 10% damage from all sources.
+- **Slow Miner**: Their small stature makes mining slower for Inchlings.
+
+---
+## Dependencies
+This datapack requires the following to function properly:
+- [Fabric Loader](https://fabricmc.net/) - Recommend loader the mods run on.
+- [Fabric API](https://fabricmc.net/use/) - Necessary for running mods in the Fabric mod loader environment.
+- [Origins Mod](https://github.com/apace100/origins-fabric) - A Minecraft mod that allows you to choose an Origin at the beginning, granting various abilities and drawbacks.
+
+## Installation
+To install the Improved Inchling Origin datapack, follow these steps:
+1. Make sure you have all dependencies installed.
+2. Download the latest release of Improved Inchling Origin from the [release page](https://modrinth.com/datapack/improved-inchling-origin).
+3. Place the downloaded file in the `datapacks` folder of your Minecraft world directory.
+4. Restart your Minecraft world or use `/reload` if the world is already running.
