@@ -1,6 +1,13 @@
 {
     "name":"Featherlight Glide",
     "description":"Harnessing the lightweight essence of a feather or the aerodynamic nature of paper, Inchlings can momentarily glide through the air. This allows them to descend gracefully and turning potential falls into controlled flights, ensuring a soft landing every time.",
+    "badges":[
+      {
+         "type":"origins:tooltip",
+         "sprite":"origins:textures/gui/badge/info.png",
+         "text":"Hold a piece of paper or a feather in your mainhand or offhand."
+      }
+   ],
     "type":"origins:action_over_time",
     "entity_action":{
        "type":"origins:execute_command",

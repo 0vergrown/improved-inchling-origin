@@ -10,7 +10,7 @@
           "name": "Exhaustion Decreased"
         }
     },
-    "increased_exhaustion_when_sprinting":{
+    "increased_exhaustion":{
         "type": "origins:exhaust",
         "interval": 20,
         "exhaustion": 4.0,
