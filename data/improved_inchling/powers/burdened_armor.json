@@ -4,9 +4,9 @@
     "type": "origins:conditioned_attribute",
     "modifier": {
         "attribute": "minecraft:generic.movement_speed",
-        "operation": "addition",
+        "operation": "add_value",
         "value": -0.015,
-        "name": "Decreased Movement Speed"
+        "id": "improved_inchling:decreased_movement_speed_when_wearing_heavy_armor"
     },
     "tick_rate": 20,
     "condition": {

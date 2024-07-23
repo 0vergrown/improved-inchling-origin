@@ -12,33 +12,33 @@
    "modifiers":[
       {
          "attribute":"minecraft:generic.max_health",
-         "operation":"addition",
+         "operation":"add_value",
          "value":-10,
-         "name":"Max Health Reduced"
+         "id":"improved_inchling:max_health_reduced"
       },
       {
          "attribute":"minecraft:generic.attack_speed",
-         "operation":"addition",
+         "operation":"add_value",
          "value":0.5,
-         "name":"Attack Speed Increased"
+         "id":"improved_inchling:attack_speed_increased"
       },
       {
          "attribute":"minecraft:generic.movement_speed",
-         "operation":"addition",
+         "operation":"add_value",
          "value":-0.015,
-         "name":"Movement Speed Reduced"
+         "id":"improved_inchling:decreased_movement_speed"
       },
       {
-         "attribute":"reach-entity-attributes:attack_range",
-         "operation":"addition",
+         "attribute":"minecraft:player.entity_interaction_range",
+         "operation":"add_value",
          "value":-0.25,
-         "name":"Attack Range Reduced"
+         "id":"improved_inchling:attack_range_reduced"
       },
       {
-         "attribute":"reach-entity-attributes:reach",
-         "operation":"addition",
+         "attribute":"minecraft:player.block_interaction_range",
+         "operation":"add_value",
          "value":-1,
-         "name":"Block Reach Reduced"
+         "id":"improved_inchling:block_reach_reduced"
       }
    ],
    "update_health":true
