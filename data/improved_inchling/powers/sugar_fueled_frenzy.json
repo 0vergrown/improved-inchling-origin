@@ -2,7 +2,7 @@
    "name":"Sugar-Fueled Frenzy",
    "description":"The Inchling's unique metabolism reacts intensely to sugar. Consuming it triggers a powerful \"sugar rush\", granting them unparalleled speed and enhanced saturation. However, indulging too much or too often in this sweet temptation risks overstimulation, potentially leading to nausea, blurred vision, and rapid hunger depletion.",
    "type":"origins:multiple",
-   "consume_resource":{
+   "indulging_resource":{
       "type":"origins:resource",
       "min":0,
       "max":1,
@@ -11,33 +11,38 @@
       },
       "start_value":0
    },
-   "indulging_resource":{
-      "type":"origins:resource",
-      "min":0,
-      "max":5,
-      "hud_render":{
-         "should_render":false
-      },
-      "start_value":0
-   },
    "eat":{
       "type":"origins:edible_item",
       "entity_action":{
-         "type":"origins:and",
-         "actions":[
-            {
-               "type":"origins:change_resource",
-               "resource":"improved_inchling:sugar_fueled_frenzy_consume_resource",
-               "change":1,
-               "operation":"add"
-            },
-            {
-               "type":"origins:change_resource",
-               "resource":"improved_inchling:sugar_fueled_frenzy_indulging_resource",
-               "change":1,
-               "operation":"add"
-            }
-         ]
+         "type":"origins:chance",
+         "action":{
+            "type":"origins:change_resource",
+            "resource":"improved_inchling:sugar_fueled_frenzy_indulging_resource",
+            "change":1,
+            "operation":"add"
+         },
+         "chance":0.1,
+         "fail_action":{
+            "type":"origins:apply_effect",
+            "effects":[
+               {
+                  "effect":"minecraft:saturation",
+                  "duration":80,
+                  "amplifier":3,
+                  "is_ambient":true,
+                  "show_particles":false,
+                  "show_icon":true
+               },
+               {
+                  "effect":"minecraft:speed",
+                  "duration":80,
+                  "amplifier":10,
+                  "is_ambient":true,
+                  "show_particles":false,
+                  "show_icon":true
+               }
+            ]
+         }
       },
       "item_condition":{
          "type":"origins:ingredient",
@@ -56,62 +61,15 @@
       "consume_sound":"minecraft:entity.donkey.eat",
       "priority":0,
       "condition":{
-         "type":"origins:and",
-         "conditions":[
-            {
-               "type":"origins:resource",
-               "resource":"improved_inchling:sugar_fueled_frenzy_consume_resource",
-               "comparison":"==",
-               "compare_to":0
-            },
-            {
-               "type":"origins:resource",
-               "resource":"improved_inchling:sugar_fueled_frenzy_indulging_resource",
-               "comparison":"!=",
-               "compare_to":5
-            }
-         ]
+         "type":"origins:resource",
+         "resource":"improved_inchling:sugar_fueled_frenzy_indulging_resource",
+         "comparison":"==",
+         "compare_to":0
       }
    },
-   "consume_effects":{
+   "indulging_effects":{
       "type":"origins:action_over_time",
       "rising_action":{
-         "type":"origins:and",
-         "actions":[
-            {
-               "type":"origins:apply_effect",
-               "effects":[
-                  {
-                     "effect":"minecraft:saturation",
-                     "duration":80,
-                     "amplifier":3,
-                     "is_ambient":true,
-                     "show_particles":false,
-                     "show_icon":true
-                  },
-                  {
-                     "effect":"minecraft:speed",
-                     "duration":80,
-                     "amplifier":10,
-                     "is_ambient":true,
-                     "show_particles":false,
-                     "show_icon":true
-                  }
-               ]
-            },
-            {
-               "type":"origins:delay",
-               "action":{
-                  "type":"origins:change_resource",
-                  "resource":"improved_inchling:sugar_fueled_frenzy_consume_resource",
-                  "change":0,
-                  "operation":"set"
-               },
-               "ticks":80
-            }
-         ]
-      },
-      "falling_action":{
          "type":"origins:and",
          "actions":[
             {
@@ -121,33 +79,7 @@
             {
                "type":"origins:clear_effect",
                "effect":"minecraft:speed"
-            }
-         ]
-      },
-      "interval":1,
-      "condition":{
-         "type":"origins:and",
-         "conditions":[
-            {
-               "type":"origins:resource",
-               "resource":"improved_inchling:sugar_fueled_frenzy_consume_resource",
-               "comparison":"==",
-               "compare_to":1
             },
-            {
-               "type":"origins:resource",
-               "resource":"improved_inchling:sugar_fueled_frenzy_indulging_resource",
-               "comparison":"!=",
-               "compare_to":5
-            }
-         ]
-      }
-   },
-   "indulging_effects":{
-      "type":"origins:action_over_time",
-      "rising_action":{
-         "type":"origins:and",
-         "actions":[
             {
                "type":"origins:apply_effect",
                "effects":[
@@ -172,21 +104,10 @@
             {
                "type":"origins:delay",
                "action":{
-                  "type":"origins:and",
-                  "actions":[
-                     {
-                        "type":"origins:change_resource",
-                        "resource":"improved_inchling:sugar_fueled_frenzy_consume_resource",
-                        "change":0,
-                        "operation":"set"
-                     },
-                     {
-                        "type":"origins:change_resource",
-                        "resource":"improved_inchling:sugar_fueled_frenzy_indulging_resource",
-                        "change":0,
-                        "operation":"set"
-                     }
-                  ]
+                  "type":"origins:change_resource",
+                  "resource":"improved_inchling:sugar_fueled_frenzy_indulging_resource",
+                  "change":0,
+                  "operation":"set"
                },
                "ticks":1200
             }
@@ -210,7 +131,7 @@
          "type":"origins:resource",
          "resource":"improved_inchling:sugar_fueled_frenzy_indulging_resource",
          "comparison":"==",
-         "compare_to":5
+         "compare_to":1
       }
    },
    "indulging_blurred_vision":{
@@ -221,61 +142,7 @@
          "type":"origins:resource",
          "resource":"improved_inchling:sugar_fueled_frenzy_indulging_resource",
          "comparison":"==",
-         "compare_to":5
-      }
-   },
-   "reset":{
-      "type":"origins:action_on_callback",
-      "entity_action_added":{
-         "type":"origins:and",
-         "actions":[
-            {
-               "type":"origins:change_resource",
-               "resource":"improved_inchling:sugar_fueled_frenzy_consume_resource",
-               "change":0,
-               "operation":"set"
-            },
-            {
-               "type":"origins:change_resource",
-               "resource":"improved_inchling:sugar_fueled_frenzy_indulging_resource",
-               "change":0,
-               "operation":"set"
-            }
-         ]
-      },
-      "entity_action_removed":{
-         "type":"origins:and",
-         "actions":[
-            {
-               "type":"origins:change_resource",
-               "resource":"improved_inchling:sugar_fueled_frenzy_consume_resource",
-               "change":0,
-               "operation":"set"
-            },
-            {
-               "type":"origins:change_resource",
-               "resource":"improved_inchling:sugar_fueled_frenzy_indulging_resource",
-               "change":0,
-               "operation":"set"
-            }
-         ]
-      },
-      "entity_action_respawned":{
-         "type":"origins:and",
-         "actions":[
-            {
-               "type":"origins:change_resource",
-               "resource":"improved_inchling:sugar_fueled_frenzy_consume_resource",
-               "change":0,
-               "operation":"set"
-            },
-            {
-               "type":"origins:change_resource",
-               "resource":"improved_inchling:sugar_fueled_frenzy_indulging_resource",
-               "change":0,
-               "operation":"set"
-            }
-         ]
+         "compare_to":1
       }
    }
 }
