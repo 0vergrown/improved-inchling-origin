@@ -18,23 +18,25 @@
 				{
 					"type":"origins:apply_effect",
 					"effect":{
-					   "effect":"minecraft:levitation",
+					   "id":"minecraft:levitation",
 					   "duration":2,
 					   "amplifier":-1,
-					   "is_ambient":false,
+					   "ambient":false,
 					   "show_particles":false,
 					   "show_icon":false
 					}
 				},
 				{    
-					"type":"origins:add_velocity",
-					"x": 0.0,
-					"y": 0.0,
-					"z":0.05,
-					"space":"local",
-					"client": true,
-					"server": true,
-					"set":false
+					"type": "origins:side",
+					"action": {
+						"type":"origins:add_velocity",
+						"x": 0.00,
+						"y": 0.00,
+						"z": 0.05,
+						"space":"local",
+						"set":false
+					},
+					"side": "server"
 				}
 			]
 		},

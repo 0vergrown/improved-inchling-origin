@@ -8,7 +8,7 @@
         "compare_to": 0.0
     },
     "modifier": {
-        "operation": "multiply_base",
-        "value": -0.6
+        "operation": "multiply_base_additive",
+        "amount": -0.6
     }
 }

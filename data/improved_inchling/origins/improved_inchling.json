@@ -14,7 +14,9 @@
 		"improved_inchling:delicate_swimmer",
 		"improved_inchling:burdened_armor"
 	],
-	"icon": "minecraft:spider_eye",
+	"icon": {
+		"id": "minecraft:spider_eye"
+	},
 	"order": 10,
 	"impact": 3,
 	"name": "Improved Inchling",

@@ -5,9 +5,9 @@
     "decreased_exhaustion":{
         "type": "origins:modify_exhaustion",
         "modifier": {
-          "operation": "multiply_base",
-          "value": -0.75,
-          "name": "Exhaustion Decreased"
+          "operation": "multiply_base_additive",
+          "amount": -0.75,
+          "id": "improved_inchling:exhaustion_decreased"
         }
     },
     "increased_exhaustion":{

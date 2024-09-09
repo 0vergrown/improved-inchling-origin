@@ -15,7 +15,7 @@
       "type":"origins:edible_item",
       "entity_action":{
          "type":"origins:chance",
-         "action":{
+         "success_action":{
             "type":"origins:change_resource",
             "resource":"improved_inchling:sugar_fueled_frenzy_indulging_resource",
             "change":1,
@@ -26,18 +26,18 @@
             "type":"origins:apply_effect",
             "effects":[
                {
-                  "effect":"minecraft:saturation",
+                  "id":"minecraft:saturation",
                   "duration":80,
                   "amplifier":3,
-                  "is_ambient":true,
+                  "ambient":true,
                   "show_particles":false,
                   "show_icon":true
                },
                {
-                  "effect":"minecraft:speed",
+                  "id":"minecraft:speed",
                   "duration":80,
                   "amplifier":10,
-                  "is_ambient":true,
+                  "ambient":true,
                   "show_particles":false,
                   "show_icon":true
                }
@@ -51,11 +51,11 @@
          }
       },
       "food_component":{
-         "hunger":4,
+         "nutrition":4,
          "saturation":1.0,
          "meat":false,
-         "always_edible":true,
-         "snack":true
+         "can_always_eat":true,
+         "eat_seconds":1.0
       },
       "consume_action":"eat",
       "consume_sound":"minecraft:entity.donkey.eat",
@@ -84,18 +84,18 @@
                "type":"origins:apply_effect",
                "effects":[
                   {
-                     "effect":"minecraft:nausea",
+                     "id":"minecraft:nausea",
                      "duration":1200,
                      "amplifier":0,
-                     "is_ambient":true,
+                     "ambient":true,
                      "show_particles":false,
                      "show_icon":true
                   },
                   {
-                     "effect":"minecraft:hunger",
+                     "id":"minecraft:hunger",
                      "duration":1200,
                      "amplifier":10,
-                     "is_ambient":true,
+                     "ambient":true,
                      "show_particles":false,
                      "show_icon":true
                   }

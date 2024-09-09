@@ -13,31 +13,31 @@
       {
          "attribute":"minecraft:generic.max_health",
          "operation":"add_value",
-         "value":-10,
+         "amount":-10,
          "id":"improved_inchling:max_health_reduced"
       },
       {
          "attribute":"minecraft:generic.attack_speed",
          "operation":"add_value",
-         "value":0.5,
+         "amount":0.5,
          "id":"improved_inchling:attack_speed_increased"
       },
       {
          "attribute":"minecraft:generic.movement_speed",
          "operation":"add_value",
-         "value":-0.015,
+         "amount":-0.015,
          "id":"improved_inchling:decreased_movement_speed"
       },
       {
          "attribute":"minecraft:player.entity_interaction_range",
          "operation":"add_value",
-         "value":-0.25,
+         "amount":-0.25,
          "id":"improved_inchling:attack_range_reduced"
       },
       {
          "attribute":"minecraft:player.block_interaction_range",
          "operation":"add_value",
-         "value":-1,
+         "amount":-1,
          "id":"improved_inchling:block_reach_reduced"
       }
    ],
