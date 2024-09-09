@@ -1,37 +1,37 @@
 {
-    "name": "Minuscule Majesty",
-    "description": "Embodying the essence of diminutive stature, Inchlings have been granted the unique advantage of being the tiniest beings in the realm.",
-	"type":"origins:action_on_callback",
-	"entity_action_chosen":{
-		"type": "origins:execute_command",
-		"command": "attribute @s minecraft:generic.scale base set 0.25"
-	},
-	"entity_action_lost":{
-		"type": "origins:execute_command",
-		"command": "attribute @s minecraft:generic.scale base set 1.0"
-	},
-	"entity_action_added":{
-		"type": "origins:execute_command",
-		"command": "attribute @s minecraft:generic.scale base set 0.25"
-	},
-	"entity_action_removed": {
-		"type": "origins:execute_command",
-		"command": "attribute @s minecraft:generic.scale base set 1.0"
-	},
-	"entity_action_respawned":{
-		"type": "origins:and",
-		"actions": [
-			{
-				"type": "origins:execute_command",
-				"command": "attribute @s minecraft:generic.scale base set 0.25"
-			},
-			{
-				"type":"origins:change_resource",
-				"resource":"improved_inchling:sugar_fueled_frenzy_indulging_resource",
-				"change":0,
-				"operation":"set"
-			}
-		]
-	},
-	"execute_chosen_when_orb":true
+   "name":"Minuscule Majesty",
+   "description":"Embodying the essence of diminutive stature, Inchlings have been granted the unique advantage of being the tiniest beings in the realm.",
+   "type":"origins:action_on_callback",
+   "entity_action_chosen":{
+      "type":"origins:execute_command",
+      "command":"attribute @s minecraft:generic.scale base set 0.25"
+   },
+   "entity_action_lost":{
+      "type":"origins:execute_command",
+      "command":"attribute @s minecraft:generic.scale base set 1.0"
+   },
+   "entity_action_added":{
+      "type":"origins:execute_command",
+      "command":"attribute @s minecraft:generic.scale base set 0.25"
+   },
+   "entity_action_removed":{
+      "type":"origins:execute_command",
+      "command":"attribute @s minecraft:generic.scale base set 1.0"
+   },
+   "entity_action_respawned":{
+      "type":"origins:and",
+      "actions":[
+         {
+            "type":"origins:execute_command",
+            "command":"attribute @s minecraft:generic.scale base set 0.25"
+         },
+         {
+            "type":"origins:change_resource",
+            "resource":"improved_inchling:sugar_fueled_frenzy_indulging_resource",
+            "change":0,
+            "operation":"set"
+         }
+      ]
+   },
+   "execute_chosen_when_orb":true
 }
