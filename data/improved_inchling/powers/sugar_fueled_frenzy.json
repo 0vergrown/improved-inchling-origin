@@ -16,30 +16,123 @@
       "entity_action":{
          "type":"origins:chance",
          "success_action":{
-            "type":"origins:change_resource",
-            "resource":"improved_inchling:sugar_fueled_frenzy_indulging_resource",
-            "change":1,
-            "operation":"add"
-         },
-         "chance":0.1,
-         "fail_action":{
-            "type":"origins:apply_effect",
-            "effects":[
+            "type":"origins:and",
+            "actions":[
                {
-                  "id":"minecraft:saturation",
-                  "duration":80,
-                  "amplifier":3,
-                  "ambient":true,
-                  "show_particles":false,
-                  "show_icon":true
+                  "type":"origins:clear_effect",
+                  "effect":"minecraft:saturation"
                },
                {
-                  "id":"minecraft:speed",
-                  "duration":80,
-                  "amplifier":10,
-                  "ambient":true,
-                  "show_particles":false,
-                  "show_icon":true
+                  "type":"origins:clear_effect",
+                  "effect":"minecraft:speed"
+               },
+               {
+                  "type":"origins:change_resource",
+                  "resource":"improved_inchling:sugar_fueled_frenzy_indulging_resource",
+                  "change":1,
+                  "operation":"set"
+               },
+               {
+                  "type":"origins:apply_effect",
+                  "effects":[
+                     {
+                        "id":"minecraft:nausea",
+                        "duration":1200,
+                        "amplifier":0,
+                        "ambient":true,
+                        "show_particles":false,
+                        "show_icon":true
+                     },
+                     {
+                        "id":"minecraft:hunger",
+                        "duration":1200,
+                        "amplifier":10,
+                        "ambient":true,
+                        "show_particles":false,
+                        "show_icon":true
+                     }
+                  ]
+               },
+               {
+                  "type":"origins:delay",
+                  "action":{
+                     "type":"origins:and",
+                     "actions":[
+                        {
+                           "type":"origins:change_resource",
+                           "resource":"improved_inchling:sugar_fueled_frenzy_indulging_resource",
+                           "change":0,
+                           "operation":"set"
+                        },
+                        {
+                           "type":"origins:clear_effect",
+                           "effect":"minecraft:nausea"
+                        },
+                        {
+                           "type":"origins:clear_effect",
+                           "effect":"minecraft:hunger"
+                        }
+                     ]
+                  },
+                  "ticks":1200
+               }
+            ]
+         },
+         "chance":0.20,
+         "fail_action":{
+            "type":"origins:and",
+            "actions":[
+               {
+                  "type":"origins:clear_effect",
+                  "effect":"minecraft:nausea"
+               },
+               {
+                  "type":"origins:clear_effect",
+                  "effect":"minecraft:hunger"
+               },
+               {
+                  "type":"origins:change_resource",
+                  "resource":"improved_inchling:sugar_fueled_frenzy_indulging_resource",
+                  "change":0,
+                  "operation":"set"
+               },
+               {
+                  "type":"origins:apply_effect",
+                  "effects":[
+                     {
+                        "id":"minecraft:saturation",
+                        "duration":80,
+                        "amplifier":3,
+                        "ambient":true,
+                        "show_particles":false,
+                        "show_icon":true
+                     },
+                     {
+                        "id":"minecraft:speed",
+                        "duration":80,
+                        "amplifier":10,
+                        "ambient":true,
+                        "show_particles":false,
+                        "show_icon":true
+                     }
+                  ]
+               },
+               {
+                  "type":"origins:delay",
+                  "action":{
+                     "type":"origins:and",
+                     "actions":[
+                        {
+                           "type":"origins:clear_effect",
+                           "effect":"minecraft:saturation"
+                        },
+                        {
+                           "type":"origins:clear_effect",
+                           "effect":"minecraft:speed"
+                        }
+                     ]
+                  },
+                  "ticks":80
                }
             ]
          }
@@ -55,7 +148,7 @@
          "saturation":1.0,
          "meat":false,
          "can_always_eat":true,
-         "eat_seconds":1.0
+         "eat_seconds":0.8
       },
       "consume_action":"eat",
       "consume_sound":"minecraft:entity.donkey.eat",
@@ -65,73 +158,6 @@
          "resource":"improved_inchling:sugar_fueled_frenzy_indulging_resource",
          "comparison":"==",
          "compare_to":0
-      }
-   },
-   "indulging_effects":{
-      "type":"origins:action_over_time",
-      "rising_action":{
-         "type":"origins:and",
-         "actions":[
-            {
-               "type":"origins:clear_effect",
-               "effect":"minecraft:saturation"
-            },
-            {
-               "type":"origins:clear_effect",
-               "effect":"minecraft:speed"
-            },
-            {
-               "type":"origins:apply_effect",
-               "effects":[
-                  {
-                     "id":"minecraft:nausea",
-                     "duration":1200,
-                     "amplifier":0,
-                     "ambient":true,
-                     "show_particles":false,
-                     "show_icon":true
-                  },
-                  {
-                     "id":"minecraft:hunger",
-                     "duration":1200,
-                     "amplifier":10,
-                     "ambient":true,
-                     "show_particles":false,
-                     "show_icon":true
-                  }
-               ]
-            },
-            {
-               "type":"origins:delay",
-               "action":{
-                  "type":"origins:change_resource",
-                  "resource":"improved_inchling:sugar_fueled_frenzy_indulging_resource",
-                  "change":0,
-                  "operation":"set"
-               },
-               "ticks":1200
-            }
-         ]
-      },
-      "falling_action":{
-         "type":"origins:and",
-         "actions":[
-            {
-               "type":"origins:clear_effect",
-               "effect":"minecraft:nausea"
-            },
-            {
-               "type":"origins:clear_effect",
-               "effect":"minecraft:hunger"
-            }
-         ]
-      },
-      "interval":1,
-      "condition":{
-         "type":"origins:resource",
-         "resource":"improved_inchling:sugar_fueled_frenzy_indulging_resource",
-         "comparison":"==",
-         "compare_to":1
       }
    },
    "indulging_blurred_vision":{

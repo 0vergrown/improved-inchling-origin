@@ -46,7 +46,7 @@
       },
       "interval":1,
       "condition":{
-         "type":"origins:all_off",
+         "type":"origins:all_of",
          "conditions":[
             {
                "type":"origins:power_active",

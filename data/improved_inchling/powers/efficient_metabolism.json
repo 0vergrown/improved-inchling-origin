@@ -15,7 +15,7 @@
         "interval": 20,
         "exhaustion": 4.0,
         "condition": {
-            "type": "origins:or",
+            "type": "origins:any_of",
             "conditions": [
                 {
                     "type": "origins:sprinting"
